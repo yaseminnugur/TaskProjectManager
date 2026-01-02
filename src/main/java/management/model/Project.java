@@ -1,7 +1,9 @@
 package management.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Project {
 
@@ -24,6 +26,24 @@ public class Project {
     public List<Task> getTasks() {
         return tasks;
     }
+
+    public List<TimedTask> getUpcomingTasks(int days) {
+        List<TimedTask> upcomingTasks = new ArrayList<>();
+        LocalDate now = LocalDate.now();
+
+        for (Task task : tasks) {
+            if (task instanceof TimedTask timedTask) {
+                LocalDate dueDate = timedTask.getDeadline().getDueDate();
+                if (!timedTask.isCompleted() &&
+                        !dueDate.isBefore(now) &&
+                        !dueDate.isAfter(now.plusDays(days))) {
+                    upcomingTasks.add(timedTask);
+                }
+            }
+        }
+        return upcomingTasks;
+    }
+
 
     public void completeTask(String taskTitle) {
         for (Task task : tasks) {
