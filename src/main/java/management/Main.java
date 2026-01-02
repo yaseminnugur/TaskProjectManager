@@ -24,4 +24,5 @@ public class Main {
         System.out.println("Proje: " + project.getName());
         System.out.println("Görev sayısı: " + project.getTasks().size());
     }
+
 }

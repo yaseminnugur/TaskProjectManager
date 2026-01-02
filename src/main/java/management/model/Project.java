@@ -24,4 +24,14 @@ public class Project {
     public List<Task> getTasks() {
         return tasks;
     }
+
+    public void completeTask(String taskTitle) {
+        for (Task task : tasks) {
+            if (task.getTitle().equalsIgnoreCase(taskTitle)) {
+                task.complete();
+                break;
+            }
+        }
+    }
+
 }
