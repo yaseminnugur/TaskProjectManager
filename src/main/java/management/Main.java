@@ -15,7 +15,7 @@ public class Main {
                 Priority.MEDIUM
         );
 
-        Deadline deadline = new Deadline(LocalDate.now().plusDays(2));
+        Deadline deadline = new Deadline(LocalDate.now().plusDays(1));
         Task task2 = new TimedTask(
                 "Sunum Hazırla",
                 "Sunum dosyası",
@@ -26,12 +26,7 @@ public class Main {
         project.addTask(task1);
         project.addTask(task2);
 
-        System.out.println("Görevler ve öncelikleri:");
-        for (Task task : project.getTasks()) {
-            System.out.println(
-                    "- " + task.getTitle() +
-                            " | Priority: " + task.getPriority()
-            );
-        }
+        Notification notification = new Notification();
+        notification.notifyUpcomingTasks(project, 2);
     }
 }
