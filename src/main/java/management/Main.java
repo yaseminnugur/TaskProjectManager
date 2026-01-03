@@ -9,19 +9,29 @@ public class Main {
 
         Project project = new Project("OOP Final Projesi");
 
-        Task task1 = new Task("Rapor Yaz", "Proje raporu");
+        Task task1 = new Task(
+                "Rapor Yaz",
+                "Proje raporu",
+                Priority.MEDIUM
+        );
+
         Deadline deadline = new Deadline(LocalDate.now().plusDays(2));
-        Task task2 = new TimedTask("Sunum Hazırla", "Sunum dosyası", deadline);
+        Task task2 = new TimedTask(
+                "Sunum Hazırla",
+                "Sunum dosyası",
+                Priority.URGENT,
+                deadline
+        );
 
         project.addTask(task1);
         project.addTask(task2);
 
-        project.completeTask("Rapor Yaz");
-
-        System.out.println("Yaklaşan görevler:");
-        for (TimedTask task : project.getUpcomingTasks(3)) {
-            System.out.println("- " + task.getTitle() +
-                    " | Deadline: " + task.getDeadline().getDueDate());
+        System.out.println("Görevler ve öncelikleri:");
+        for (Task task : project.getTasks()) {
+            System.out.println(
+                    "- " + task.getTitle() +
+                            " | Priority: " + task.getPriority()
+            );
         }
     }
 }
