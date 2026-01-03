@@ -1,6 +1,7 @@
 package management;
 
 import management.model.*;
+import management.util.FileExporter;
 
 import java.time.LocalDate;
 
@@ -26,7 +27,8 @@ public class Main {
         project.addTask(task1);
         project.addTask(task2);
 
-        Notification notification = new Notification();
-        notification.notifyUpcomingTasks(project, 2);
+        task1.complete();
+
+        FileExporter.exportProject(project, "project_output.txt");
     }
 }

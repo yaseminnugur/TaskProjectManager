@@ -1,0 +1,11 @@
+Proje: OOP Final Projesi
+
+Görev: Rapor Yaz
+Öncelik: MEDIUM
+Tamamlandı mı: true
+------------------------
+Görev: Sunum Hazırla
+Öncelik: URGENT
+Tamamlandı mı: false
+Deadline: 2026-01-04
+------------------------
