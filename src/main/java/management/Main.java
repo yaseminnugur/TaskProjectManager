@@ -6,10 +6,23 @@ import management.util.FileExporter;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Görev Yönetim Sistemi'nin ana giriş sınıfıdır.
+ * Bu sınıf, kullanıcı arayüzünü (CLI) yönetir, kullanıcıdan girdileri alır
+ * ve ilgili iş mantığı servislerini yönlendirir.
+ * * @author Yasemin
+ * @version 1.0
+ */
 public class Main {
 
+    /** Kullanıcıdan veri almak için kullanılan paylaşımlı Scanner nesnesi */
     private static final Scanner sc = new Scanner(System.in);
 
+    /**
+     * Programın ana döngüsünün çalıştığı giriş metodudur.
+     * Proje nesnesini başlatır ve kullanıcı çıkış yapana kadar menüyü görüntüler.
+     * * @param args Komut satırı argümanları (kullanılmamaktadır)
+     */
     public static void main(String[] args) {
 
         Project project = new Project("OOP Görev Yönetim Sistemi");
@@ -38,6 +51,9 @@ public class Main {
 
     // ---------------- MENU ----------------
 
+    /**
+     * Kullanıcıya sunulan ana menü seçeneklerini konsola yazdırır.
+     */
     private static void printMenu() {
         System.out.println("\n--- GÖREV YÖNETİM SİSTEMİ ---");
         System.out.println("1 - Görev ekle");
@@ -51,6 +67,10 @@ public class Main {
 
     // ---------------- FEATURES ----------------
 
+    /**
+     * Kullanıcıdan görev detaylarını alarak projeye yeni bir {@link TimedTask} ekler.
+     * * @param project Görevin ekleneceği hedef proje
+     */
     private static void addTask(Project project) {
         System.out.print("Görev adı: ");
         String title = sc.nextLine();
@@ -71,6 +91,11 @@ public class Main {
         System.out.println("Görev başarıyla eklendi.");
     }
 
+    /**
+     * Belirli bir görevin başlığını kullanıcıdan alarak tamamlanması için
+     * {@link Project#completeTask(String)} metoduna yönlendirir.
+     * * @param project İşlemin yapılacağı proje nesnesi
+     */
     private static void completeTask(Project project) {
         System.out.print("Tamamlanacak görev adı: ");
         String title = sc.nextLine();
@@ -79,6 +104,11 @@ public class Main {
         System.out.println("Görev tamamlandı (bulunduysa).");
     }
 
+    /**
+     * Belirli bir zaman dilimi içindeki yaklaşan görevleri kullanıcıdan alınan
+     * gün sayısına göre listeler.
+     * * @param project Listenin çekileceği proje nesnesi
+     */
     private static void listUpcomingTasks(Project project) {
         System.out.print("Kaç gün içindeki görevler listelensin? ");
         int days = Integer.parseInt(sc.nextLine());
