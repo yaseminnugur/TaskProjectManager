@@ -1,11 +1,7 @@
-Proje: OOP Final Projesi
+Proje: OOP Görev Yönetim Sistemi
 
-Görev: Rapor Yaz
-Öncelik: MEDIUM
-Tamamlandı mı: true
-------------------------
-Görev: Sunum Hazırla
-Öncelik: URGENT
+Görev: Rapor Hazırla
+Öncelik: HIGH
 Tamamlandı mı: false
-Deadline: 2026-01-04
+Deadline: 2026-01-05
 ------------------------
