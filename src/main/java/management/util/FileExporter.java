@@ -7,8 +7,22 @@ import management.model.TimedTask;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Proje verilerini sistem dışına (dosya sistemine) aktarmak için kullanılan
+ * yardımcı (utility) sınıftır.
+ * Bu sınıf, verilerin kalıcı olarak saklanması veya raporlanması için
+ * dosya yazma işlemlerini gerçekleştirir.
+ * * @author Yasemin
+ * @version 1.0
+ */
 public class FileExporter {
 
+    /**
+     * Verilen bir proje nesnesindeki tüm görevleri ve detaylarını
+     * belirtilen bir metin dosyasına (.txt) yazdırır.
+     * * @param project İçeriği dışa aktarılacak olan {@link Project} nesnesi
+     * @param fileName Verilerin yazılacağı dosyanın adı veya tam yolu
+     */
     public static void exportProject(Project project, String fileName) {
 
         try (FileWriter writer = new FileWriter(fileName)) {
